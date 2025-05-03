@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -21,7 +22,15 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@v1/*": ["app/versions/v1/*"],
+      "@v1/authModule/*": ["app/versions/v1/modules/auth/*"],
+      "@v1/signout/*": ["app/versions/v1/modules/auth/features/sign-out/*"],
+      "@v1/signin/*": ["app/versions/v1/modules/auth/features/sign-in/*"],
+      "@core/*": ["app/core/*"],
+      "@shared/*": ["app/shared/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
