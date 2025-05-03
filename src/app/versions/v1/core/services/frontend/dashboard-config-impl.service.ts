@@ -1,3 +1,5 @@
+import { LayoutMode } from "@v1/core/enums/frontend/layout-modes.enum";
+import { LayoutType } from "@v1/core/enums/frontend/layout-type.enum";
 import { DashboardConfig } from "@v1/core/interfaces/frontend/dashboard-config.interface";
 import { IDashboardConfigService } from "@v1/core/interfaces/frontend/i-dashboard-config.service";
 import { BehaviorSubject, Observable } from "rxjs";
@@ -11,7 +13,12 @@ export class DashboardConfigImplService implements IDashboardConfigService {
   configSnapshot: DashboardConfig;
 
   constructor() {
-    this._config = new BehaviorSubject<DashboardConfig>({} as DashboardConfig);
+    this._config = new BehaviorSubject<DashboardConfig>({
+      layout: {
+        mode: LayoutMode.VERTICAL,
+        type: LayoutType.EMPTY,
+      }
+    } as DashboardConfig);
     this.config$ = this._config.asObservable();
     this.configSnapshot = this._config.getValue();
   }

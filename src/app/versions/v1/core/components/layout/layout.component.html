@@ -1,1 +1,7 @@
 <p>layout works!</p>
+{{config | json}}
+
+
+@if (config.layout.type === layoutTypes.EMPTY) {
+  <app-empty-layout></app-empty-layout>
+}
